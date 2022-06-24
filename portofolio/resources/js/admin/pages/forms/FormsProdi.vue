@@ -72,11 +72,11 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/fakultas").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/fakultas").then((response) => {
             this.fakultas = response.data;
         });
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/prodi/" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/prodi/" + this.$route.params.id).then((response) => {
                 this.datas.nama_prodi = response.data.data.nama_prodi;
                 this.datas.fakultas_id = response.data.data.fakultas_id;
                 this.datas.jurusan_id = response.data.data.jurusan_id;
@@ -88,7 +88,7 @@ export default {
     },
     watch: {
         selectedFakultas: function (value) {
-            axios.get("/portofolio/api/jurusan/byFakultas/" + this.selectedFakultas).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/jurusan/byFakultas/" + this.selectedFakultas).then((response) => {
                 this.jurusan = response.data;
                 this.datas.fakultas_id = this.selectedFakultas;
             });
@@ -102,7 +102,7 @@ export default {
             e.preventDefault();
             if (this.$route.params.id) {
                 axios
-                    .put("/portofolio/api/prodi/" + this.$route.params.id, this.datas)
+                    .put("/portofolio.terdistribusi/api/prodi/" + this.$route.params.id, this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "prodi" });
@@ -113,7 +113,7 @@ export default {
             } else {
                 console.log(this.datas);
                 axios
-                    .post("/portofolio/api/prodi", this.datas)
+                    .post("/portofolio.terdistribusi/api/prodi", this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "prodi" });

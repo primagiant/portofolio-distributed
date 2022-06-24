@@ -1,37 +1,44 @@
 <template>
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-        <div
-            class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <a class="navbar-brand brand-logo" href="">
-                <img :src="'/portofolio/images/logo-mini.svg'" alt="logo"/>
+                <img :src="'/portofolio.terdistribusi/images/logo-mini.svg'" alt="logo" />
                 <span>Portofolio</span>
             </a>
             <a class="navbar-brand brand-logo-mini" href="">
-                <img :src="'/portofolio/images/logo-mini.svg'" alt="logo"/>
+                <img :src="'/portofolio.terdistribusi/images/logo-mini.svg'" alt="logo" />
             </a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-            <button
-                class="navbar-toggler navbar-toggler align-self-center"
-                type="button"
-                data-toggle="minimize"
-            >
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                 <span class="icon-menu"></span>
             </button>
             <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item nav-profile dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        data-toggle="dropdown"
-                        id="profileDropdown"
-                    >
-                        <img :src="'/portofolio/images/default.svg'" alt="profile" />
+                <li class="nav-item dropdown">
+                    <a @click.prevent="readNotif" class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
+                        <i class="icon-bell mx-0"></i>
+                        <span class="indicator count"></span>
                     </a>
-                    <div
-                        class="dropdown-menu dropdown-menu-right navbar-dropdown"
-                        aria-labelledby="profileDropdown"
-                    >
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                        <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                        <a class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-success">
+                                    <i class="ti-info-alt mx-0"></i>
+                                </div>
+                            </div>
+                            <div class="preview-item-content">
+                                <h6 class="preview-subject font-weight-normal">Portofolio sudah di validasi!</h6>
+                                <p class="font-weight-light small-text mb-0 text-muted">1 hari yang lalu</p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                        <img :src="'/portofolio.terdistribusi/images/default.svg'" alt="profile" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                         <button @click.prevent="logout" class="dropdown-item">
                             <i class="ti-power-off text-primary"></i>
                             Logout
@@ -39,11 +46,7 @@
                     </div>
                 </li>
             </ul>
-            <button
-                class="navbar-toggler navbar-toggler-right d-lg-none align-self-center"
-                type="button"
-                data-toggle="offcanvas"
-            >
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="icon-menu"></span>
             </button>
         </div>
@@ -54,30 +57,33 @@
 export default {
     data() {
         return {
-            csrf: document
-                .querySelector('meta[name="csrf-token"]')
-                .getAttribute("content"),
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
         };
     },
     methods: {
         logout: function () {
-            axios.post("/portofolio/logout").then((response) => {
-                window.location.href = "/portofolio/login";
+            axios.post("/portofolio.terdistribusi/logout").then((response) => {
+                window.location.href = "/portofolio.terdistribusi/login";
             });
+        },
+        readNotif: function () {
+            console.log("read");
+            const indicator = document.querySelector(".indicator");
+            // indicator.setAttribute("class");
         },
     },
 };
 </script>
 
 <style scoped>
-    .navbar .brand-logo img{
-        width: 35px;
-        height: 35px;
-    } 
-    .navbar .brand-logo span{
-        font-family: "Nunito", sans-serif;
-        font-weight: 700;
-        font-size: 20px;
-        margin-left: 6px;
-    } 
+.navbar .brand-logo img {
+    width: 35px;
+    height: 35px;
+}
+.navbar .brand-logo span {
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 6px;
+}
 </style>

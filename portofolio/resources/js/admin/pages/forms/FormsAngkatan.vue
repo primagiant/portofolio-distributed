@@ -36,7 +36,7 @@ export default {
     },
     mounted() {
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/angkatan/" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/angkatan/" + this.$route.params.id).then((response) => {
                 this.datas.tahun = response.data.data.tahun;
             });
         }
@@ -46,7 +46,7 @@ export default {
             e.preventDefault();
             if (this.$route.params.id) {
                 axios
-                    .put("/portofolio/api/angkatan/" + this.$route.params.id, this.datas)
+                    .put("/portofolio.terdistribusi/api/angkatan/" + this.$route.params.id, this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "angkatan" });
@@ -56,7 +56,7 @@ export default {
                     });
             } else {
                 axios
-                    .post("/portofolio/api/angkatan", this.datas)
+                    .post("/portofolio.terdistribusi/api/angkatan", this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "angkatan" });

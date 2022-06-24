@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         showAllData: function (page = 1) {
-            axios.get("/portofolio/api/fakultas?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/fakultas?page=" + page).then((response) => {
                 this.fakultas = response.data;
             });
         },
@@ -78,7 +78,7 @@ export default {
                 })
                 .then((result) => {
                     if (result.value) {
-                        let uri = `/portofolio/api/fakultas/${id}`;
+                        let uri = `/portofolio.terdistribusi/api/fakultas/${id}`;
                         this.axios.delete(uri).then((response) => {
                             this.$swal.fire({ title: "Success!", text: "Fakultas deleted successfully", icon: "success", timer: 1000 });
                             // this.products.data.splice(this.products.data.indexOf(id), 1);

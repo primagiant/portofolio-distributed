@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         showAllData: function () {
-            axios.get("/portofolio/api/mahasiswa").then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa").then((response) => {
                 for (let i = 0; i < response.data.data.length; i++) {
                     if (response.data.data[i].pembimbing_akademik !== "Data Belum Ada") {
                         response.data.data.splice(i, 1);
@@ -99,7 +99,7 @@ export default {
                         let formdata = new FormData();
                         formdata.append("pembimbing_akademik_id", this.$route.params.id);
                         for (let i in this.selected) {
-                            axios.post("/portofolio/api/mahasiswa/assign/" + this.selected[i], formdata).then((response) => {
+                            axios.post("/portofolio.terdistribusi/api/mahasiswa/assign/" + this.selected[i], formdata).then((response) => {
                                 this.$swal.fire({ title: "Success!", text: "Pembimbing Akademik Berhasil Ditetapkan", icon: "success", timer: 1000 });
                             });
                         }

@@ -115,7 +115,7 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/portofolio/byNim/" + this.$route.params.nim).then((response) => {
+        axios.get("/portofolio.terdistribusi/api/portofolio/byNim/" + this.$route.params.nim).then((response) => {
             this.portofolio = response.data.data;
         });
     },

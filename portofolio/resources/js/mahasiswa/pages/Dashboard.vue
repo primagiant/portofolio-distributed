@@ -68,7 +68,7 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/portofolio").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/portofolio").then((response) => {
             this.portofolio = response.data.data;
             this.portofolio.forEach((e) => {
                 if (e.status === 1) {
@@ -79,7 +79,7 @@ export default {
                 this.totalPortofolio++;
             });
         });
-        axios.get("/portofolio/api/mahasiswa").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/mahasiswa").then((response) => {
             this.mhs = response.data.data;
         });
     },

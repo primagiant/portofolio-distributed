@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         showAllData: function (page = 1) {
-            axios.get("/portofolio/api/jurusan?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/jurusan?page=" + page).then((response) => {
                 this.jurusan = response.data;
             });
         },
@@ -80,7 +80,7 @@ export default {
                 })
                 .then((result) => {
                     if (result.value) {
-                        let uri = `/portofolio/api/jurusan/${id}`;
+                        let uri = `/portofolio.terdistribusi/api/jurusan/${id}`;
                         this.axios.delete(uri).then((response) => {
                             this.$swal.fire({ title: "Success!", text: "Jurusan deleted successfully", icon: "success", timer: 1000 });
                         });

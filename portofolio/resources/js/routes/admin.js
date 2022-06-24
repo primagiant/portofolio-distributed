@@ -15,31 +15,31 @@ import FormsPembimbingAkademik from '../admin/pages/forms/FormsPembimbingAkademi
 import AssignMahasiswa from '../admin/pages/forms/AssignMahasiswa';
 
 export const AdminRoutes = [
-    { name: 'dashboard', path: '/portofolio/admin/dashboard', component: Dashboard },
-    { name: 'kegiatan', path: '/portofolio/admin/kegiatan', component: Kegiatan },
+    { name: 'dashboard', path: '/portofolio.terdistribusi/admin/dashboard', component: Dashboard },
+    { name: 'kegiatan', path: '/portofolio.terdistribusi/admin/kegiatan', component: Kegiatan },
     // Angkatan
-    { name: 'angkatan', path: '/portofolio/admin/angkatan', component: Angkatan },
-    { name: 'angkatanCreate', path: '/portofolio/admin/angkatan/create', component: FormsAngkatan },
-    { name: 'angkatanEdit', path: '/portofolio/admin/angkatan/edit/:id', component: FormsAngkatan },
+    { name: 'angkatan', path: '/portofolio.terdistribusi/admin/angkatan', component: Angkatan },
+    { name: 'angkatanCreate', path: '/portofolio.terdistribusi/admin/angkatan/create', component: FormsAngkatan },
+    { name: 'angkatanEdit', path: '/portofolio.terdistribusi/admin/angkatan/edit/:id', component: FormsAngkatan },
     // Fakultas
-    { name: 'fakultas', path: '/portofolio/admin/fakultas', component: Fakultas },
-    { name: 'fakultasCreate', path: '/portofolio/admin/fakultas/create', component: FormsFakultas },
-    { name: 'fakultasEdit', path: '/portofolio/admin/fakultas/edit/:id', component: FormsFakultas },
+    { name: 'fakultas', path: '/portofolio.terdistribusi/admin/fakultas', component: Fakultas },
+    { name: 'fakultasCreate', path: '/portofolio.terdistribusi/admin/fakultas/create', component: FormsFakultas },
+    { name: 'fakultasEdit', path: '/portofolio.terdistribusi/admin/fakultas/edit/:id', component: FormsFakultas },
     // Jurusan
-    { name: 'jurusan', path: '/portofolio/admin/jurusan', component: Jurusan },
-    { name: 'jurusanCreate', path: '/portofolio/admin/jurusan/create', component: FormsJurusan },
-    { name: 'jurusanEdit', path: '/portofolio/admin/jurusan/edit/:id', component: FormsJurusan },
+    { name: 'jurusan', path: '/portofolio.terdistribusi/admin/jurusan', component: Jurusan },
+    { name: 'jurusanCreate', path: '/portofolio.terdistribusi/admin/jurusan/create', component: FormsJurusan },
+    { name: 'jurusanEdit', path: '/portofolio.terdistribusi/admin/jurusan/edit/:id', component: FormsJurusan },
     // Prodi
-    { name: 'prodi', path: '/portofolio/admin/prodi', component: Prodi },
-    { name: 'prodiCreate', path: '/portofolio/admin/prodi/create', component: FormsProdi },
-    { name: 'prodiEdit', path: '/portofolio/admin/prodi/edit/:id', component: FormsProdi },
+    { name: 'prodi', path: '/portofolio.terdistribusi/admin/prodi', component: Prodi },
+    { name: 'prodiCreate', path: '/portofolio.terdistribusi/admin/prodi/create', component: FormsProdi },
+    { name: 'prodiEdit', path: '/portofolio.terdistribusi/admin/prodi/edit/:id', component: FormsProdi },
     // Mahasiswa
-    { name: 'mahasiswa', path: '/portofolio/admin/mahasiswa', component: Mahasiswa },
-    { name: 'mahasiswaCreate', path: '/portofolio/admin/mahasiswa/create', component: FormsMahasiswa },
-    { name: 'mahasiswaEdit', path: '/portofolio/admin/mahasiswa/edit/:id', component: FormsMahasiswa },
+    { name: 'mahasiswa', path: '/portofolio.terdistribusi/admin/mahasiswa', component: Mahasiswa },
+    { name: 'mahasiswaCreate', path: '/portofolio.terdistribusi/admin/mahasiswa/create', component: FormsMahasiswa },
+    { name: 'mahasiswaEdit', path: '/portofolio.terdistribusi/admin/mahasiswa/edit/:id', component: FormsMahasiswa },
     //Pembimbing Akademik
-    { name: 'pembimbingakademik', path: '/portofolio/admin/pembimbingakademik', component: PembimbingAkademik },
-    { name: 'pembimbingAkademikCreate', path: '/portofolio/admin/pembimbingakademik/create', component: FormsPembimbingAkademik },
-    { name: 'pembimbingAkademikEdit', path: '/portofolio/admin/pembimbingakademik/edit/:id', component: FormsPembimbingAkademik },
-    { name: 'assignMahasiswa', path: '/portofolio/admin/assignmahasiswa/:id', component: AssignMahasiswa },
+    { name: 'pembimbingakademik', path: '/portofolio.terdistribusi/admin/pembimbingakademik', component: PembimbingAkademik },
+    { name: 'pembimbingAkademikCreate', path: '/portofolio.terdistribusi/admin/pembimbingakademik/create', component: FormsPembimbingAkademik },
+    { name: 'pembimbingAkademikEdit', path: '/portofolio.terdistribusi/admin/pembimbingakademik/edit/:id', component: FormsPembimbingAkademik },
+    { name: 'assignMahasiswa', path: '/portofolio.terdistribusi/admin/assignmahasiswa/:id', component: AssignMahasiswa },
 ];

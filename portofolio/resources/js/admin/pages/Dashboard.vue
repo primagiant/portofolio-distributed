@@ -131,13 +131,13 @@ export default {
                 second: "numeric",
             }).format();
         }, 1000);
-        axios.get("/portofolio/api/countPortofolio").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/countPortofolio").then((response) => {
             this.totalPortofolio = response.data.data;
         });
-        axios.get("/portofolio/api/pembimbingakademik").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/pembimbingakademik").then((response) => {
             this.banyakPA = response.data.data.length;
         });
-        axios.get("/portofolio/api/angkatan").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/angkatan").then((response) => {
             this.angkatan = response.data.data;
             this.selectedAngkatan = this.angkatan[0].tahun;
             this.filterAngkatan(this.angkatan[0].id);
@@ -151,7 +151,7 @@ export default {
                     this.selectedAngkatan = this.angkatan[i].tahun;
                 }
             }
-            axios.get("/portofolio/api/mahasiswa/topMahasiswa/" + id).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa/topMahasiswa/" + id).then((response) => {
                 this.mahasiswa = response.data;
                 if (response.data.data.length !== 0) {
                     this.isThereMahasiswaAngkatan = true;
@@ -161,7 +161,7 @@ export default {
             });
         },
         calculateValidation() {
-            axios.get("/portofolio/api/mahasiswa").then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa").then((response) => {
                 this.banyakMahasiswa = response.data.data.length;
             });
         },

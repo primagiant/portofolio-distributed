@@ -113,14 +113,14 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/pembimbingakademik").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/pembimbingakademik").then((response) => {
             this.pembimbingakademik = response.data;
         });
-        axios.get("/portofolio/api/fakultas/").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/fakultas/").then((response) => {
             this.fakultas = response.data;
         });
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/pembimbingakademik/" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/pembimbingakademik/" + this.$route.params.id).then((response) => {
                 console.log(response.data);
                 this.datas.name = response.data.data.nama;
                 this.selectedFakultas = response.data.data.fakultas_id;
@@ -134,13 +134,13 @@ export default {
 
     watch: {
         selectedFakultas: function (value) {
-            axios.get("/portofolio/api/jurusan/byFakultas/" + this.selectedFakultas).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/jurusan/byFakultas/" + this.selectedFakultas).then((response) => {
                 this.jurusan = response.data;
                 this.datas.fakultas_id = this.selectedFakultas;
             });
         },
         selectedJurusan: function (value) {
-            axios.get("/portofolio/api/prodi/byJurusan/" + this.selectedJurusan).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/prodi/byJurusan/" + this.selectedJurusan).then((response) => {
                 this.prodi = response.data;
                 this.datas.jurusan_id = this.selectedJurusan;
             });
@@ -154,7 +154,7 @@ export default {
             e.preventDefault();
             if (this.$route.params.id) {
                 axios
-                    .put("/portofolio/api/pembimbingakademik/" + this.$route.params.id, this.datas)
+                    .put("/portofolio.terdistribusi/api/pembimbingakademik/" + this.$route.params.id, this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "pembimbingakademik" });
@@ -164,7 +164,7 @@ export default {
                     });
             } else {
                 axios
-                    .post("/portofolio/api/pembimbingakademik", this.datas)
+                    .post("/portofolio.terdistribusi/api/pembimbingakademik", this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "pembimbingakademik" });

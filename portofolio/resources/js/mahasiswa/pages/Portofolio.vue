@@ -158,7 +158,7 @@ export default {
     },
     methods: {
         getResults: function (page = 1) {
-            axios.get("/portofolio/api/portofolio?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/portofolio?page=" + page).then((response) => {
                 this.portofolio = response.data;
             });
         },
@@ -178,7 +178,7 @@ export default {
                     if (result.value) {
                         this.isLoading = true;
                         this.isSuccess = false;
-                        let uri = `/portofolio/api/portofolio/${id}`;
+                        let uri = `/portofolio.terdistribusi/api/portofolio/${id}`;
                         this.axios
                             .delete(uri)
                             .then((response) => {
@@ -193,7 +193,7 @@ export default {
                 });
         },
         redirectCheck: function (id) {
-            axios.get("/portofolio/api/portofolio/" + id).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/portofolio/" + id).then((response) => {
                 if (response.data.data.status === 0) {
                     this.$router.push({ name: "portofolioEdit", params: { id: id } });
                 } else {

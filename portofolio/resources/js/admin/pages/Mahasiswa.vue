@@ -68,7 +68,7 @@ export default {
     },
     methods: {
         getResults: function (page = 1) {
-            axios.get("/portofolio/api/mahasiswa?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa?page=" + page).then((response) => {
                 this.mahasiswa = response.data;
             });
         },
@@ -86,7 +86,7 @@ export default {
                 })
                 .then((result) => {
                     if (result.value) {
-                        let uri = `/portofolio/api/mahasiswa/${id}`;
+                        let uri = `/portofolio.terdistribusi/api/mahasiswa/${id}`;
                         this.axios.delete(uri).then((response) => {
                             this.$swal.fire({ title: "Success!", text: "Mahasiswa deleted successfully", icon: "success", timer: 1000 });
                             // this.products.data.splice(this.products.data.indexOf(id), 1);

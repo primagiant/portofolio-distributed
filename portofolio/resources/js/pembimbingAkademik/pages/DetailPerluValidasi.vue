@@ -123,7 +123,7 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/portofolio/byNim/" + this.$route.params.nim).then((response) => {
+        axios.get("/portofolio.terdistribusi/api/portofolio/byNim/" + this.$route.params.nim).then((response) => {
             this.portofolio = response.data.data;
         });
     },
@@ -146,7 +146,7 @@ export default {
                         let formData = new FormData();
                         formData.append("valid_point", this.portofolioPoint[i]);
                         if (result.value) {
-                            axios.post("/portofolio/api/portofolio/validasi/" + this.portofolio.perluValidasi[i].id, formData);
+                            axios.post("/portofolio.terdistribusi/api/portofolio/validasi/" + this.portofolio.perluValidasi[i].id, formData);
                         }
                     }
                     this.$swal.fire({ title: "Success!", text: "Portofolio Tervalidasi", icon: "success", timer: 1000 });
