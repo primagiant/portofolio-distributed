@@ -17,21 +17,28 @@
                 <li class="nav-item dropdown">
                     <a @click.prevent="readNotif" class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                         <i class="icon-bell mx-0"></i>
-                        <span class="count" ref="indicator"></span>
+                        <span class="" ref="indicator"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                         <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <div class="preview-icon bg-success">
-                                    <i class="ti-info-alt mx-0"></i>
+                        <template v-if="notifikasi.length !== 0">
+                            <router-link :to="{ name: 'portofolio' }" v-for="(notif, index) in notifikasi" :key="index" class="dropdown-item preview-item">
+                                <div class="preview-thumbnail">
+                                    <div class="preview-icon bg-success">
+                                        <i class="ti-info-alt mx-0"></i>
+                                    </div>
                                 </div>
+                                <div class="preview-item-content">
+                                    <h6 class="preview-subject font-weight-normal">{{ notif.title }}</h6>
+                                    <p class="font-weight-light small-text mb-0 text-muted">1 hari yang lalu</p>
+                                </div>
+                            </router-link>
+                        </template>
+                        <template v-else>
+                            <div class="dropdown-item preview-item">
+                                <p class="font-weight-light small-text mb-0 text-muted">Yahh, tidak ada Notifikasi untuk hari ini</p>
                             </div>
-                            <div class="preview-item-content">
-                                <h6 class="preview-subject font-weight-normal">Portofolio sudah di validasi!</h6>
-                                <p class="font-weight-light small-text mb-0 text-muted">1 hari yang lalu</p>
-                            </div>
-                        </a>
+                        </template>
                     </div>
                 </li>
                 <li class="nav-item nav-profile dropdown">
@@ -57,8 +64,20 @@
 export default {
     data() {
         return {
+            notifikasi: {},
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
         };
+    },
+    created() {
+        axios.get("http://localhost:3000/notifikasi").then((response) => {
+            this.notifikasi = response.data;
+            console.log(this.notifikasi);
+
+            if (this.notifikasi.length != 0) {
+                this.$refs.indicator.classList.add("count");
+            }
+            readNotif();
+        });
     },
     methods: {
         logout: function () {
@@ -67,9 +86,8 @@ export default {
             });
         },
         readNotif: function () {
-            console.log(this.$refs);
             this.$refs.indicator.classList.remove("count"); //menghapus indicator notif
-            console.log("Notification has read");
+            console.log("sukses");
         },
     },
 };
