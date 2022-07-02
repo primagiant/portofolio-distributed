@@ -17,7 +17,7 @@
                 <li class="nav-item dropdown">
                     <a @click.prevent="readNotif" class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                         <i class="icon-bell mx-0"></i>
-                        <span class="indicator count"></span>
+                        <span class="count" ref="indicator"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                         <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
@@ -67,9 +67,9 @@ export default {
             });
         },
         readNotif: function () {
-            console.log("read");
-            const indicator = document.querySelector(".indicator");
-            // indicator.setAttribute("class");
+            console.log(this.$refs);
+            this.$refs.indicator.classList.remove("count"); //menghapus indicator notif
+            console.log("Notification has read");
         },
     },
 };
