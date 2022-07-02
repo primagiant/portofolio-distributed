@@ -86,7 +86,7 @@ export default {
                 })
                 .then((result) => {
                     if (result.value) {
-                        let uri = `/portofolio/api/mahasiswa/${id}`;
+                        let uri = `/portofolio.terdistribusi/api/mahasiswa/${id}`;
                         this.axios.delete(uri).then((response) => {
                             this.$swal.fire({ title: "Success!", text: "Mahasiswa deleted successfully", icon: "success", timer: 1000 });
                             // this.products.data.splice(this.products.data.indexOf(id), 1);
