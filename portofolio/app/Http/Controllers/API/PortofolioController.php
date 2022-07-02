@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PortofolioResource;
 use App\Models\Mahasiswa;
+use App\Models\PembimbingAkademik;
 use App\Models\Portofolio;
 use App\Models\User;
 use GuzzleHttp\Client;
@@ -192,8 +193,8 @@ class PortofolioController extends Controller
             $url = "http://localhost:3000/notifikasi/";
             $notifikasi->request('POST', $url, [
                 'json' => [
-                    "senderId" => $portofolio->mahasiswa_id,
-                    "receiverId" => Mahasiswa::find($portofolio->mahasiswa_id)->pembimbing_akademik,
+                    "senderId" => Auth::user()->id,
+                    "receiverId" => PembimbingAkademik::find(Mahasiswa::find(User::find(Auth::user()->id)->mahasiswa->id)->pembimbing_akademik_id)->user_id,
                     "title" => "Portofolio Baru",
                     "message" => User::find(Auth::user()->id)->mahasiswa->nama . "mengikuti kegiatan " . $request->nama_kegiatan,
                     "isRead" => false
