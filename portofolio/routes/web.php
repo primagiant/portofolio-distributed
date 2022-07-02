@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\API\PortofolioController;
+use App\Http\Controllers\API\NotifikasiController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 /*
@@ -20,6 +19,9 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return redirect('login');
 });
+
+Route::get('/getNotifikasi', [NotifikasiController::class, 'index']);
+Route::get('/createNotifikasi', [NotifikasiController::class, 'store']);
 
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

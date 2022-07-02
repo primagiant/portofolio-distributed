@@ -60,7 +60,7 @@ export default {
     },
     methods: {
         showAllData: function (page = 1) {
-            axios.get("/portofolio/api/fakultas?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/fakultas?page=" + page).then((response) => {
                 this.fakultas = response.data;
             });
         },

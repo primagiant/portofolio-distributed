@@ -138,20 +138,20 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/mahasiswa").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/mahasiswa").then((response) => {
             this.mahasiswa = response.data;
         });
-        axios.get("/portofolio/api/fakultas").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/fakultas").then((response) => {
             this.fakultas = response.data;
         });
-        axios.get("/portofolio/api/angkatan").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/angkatan").then((response) => {
             this.angkatan = response.data;
         });
-        axios.get("/portofolio/api/pembimbingakademik").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/pembimbingakademik").then((response) => {
             this.pa = response.data;
         });
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/mahasiswa" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/mahasiswa" + this.$route.params.id).then((response) => {
                 this.datas.nim = response.data.data.nim;
                 this.datas.name = response.data.data.nama;
                 this.selectedFakultas = response.data.data.fakultas_id;
@@ -165,13 +165,13 @@ export default {
     },
     watch: {
         selectedFakultas: function (value) {
-            axios.get("/portofolio/api/jurusan/byFakultas/" + this.selectedFakultas).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/jurusan/byFakultas/" + this.selectedFakultas).then((response) => {
                 this.jurusan = response.data;
                 this.datas.fakultas_id = this.selectedFakultas;
             });
         },
         selectedJurusan: function (value) {
-            axios.get("/portofolio/api/prodi/byJurusan/" + this.selectedJurusan).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/prodi/byJurusan/" + this.selectedJurusan).then((response) => {
                 this.prodi = response.data;
                 this.datas.jurusan_id = this.selectedJurusan;
             });
@@ -185,7 +185,7 @@ export default {
             e.preventDefault();
             if (this.$route.params.id) {
                 axios
-                    .put("/portofolio/api/mahasiswa" + this.$route.params.id, this.datas)
+                    .put("/portofolio.terdistribusi/api/mahasiswa" + this.$route.params.id, this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "mahasiswa" });
@@ -195,7 +195,7 @@ export default {
                     });
             } else {
                 axios
-                    .post("/portofolio/api/mahasiswa", this.datas)
+                    .post("/portofolio.terdistribusi/api/mahasiswa", this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "mahasiswa" });

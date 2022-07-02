@@ -123,13 +123,13 @@ export default {
     },
     watch: {
         selectedKategoriKegiatan: function (value) {
-            axios.get("/portofolio/api/kegiatan/" + this.selectedKategoriKegiatan).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/kegiatan/" + this.selectedKategoriKegiatan).then((response) => {
                 this.jenis_kegiatan = response.data.data;
             });
             this.ref_point = 0;
         },
         selectedJenisKegiatan: function (value) {
-            axios.get("/portofolio/api/jeniskegiatan/" + this.selectedJenisKegiatan).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/jeniskegiatan/" + this.selectedJenisKegiatan).then((response) => {
                 this.ref_point = response.data.data.ref_point;
             });
             this.datas.kategori_kegiatan_id = this.selectedKategoriKegiatan;
@@ -137,11 +137,11 @@ export default {
         },
     },
     created() {
-        axios.get("/portofolio/api/kategorikegiatan").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/kategorikegiatan").then((response) => {
             this.kategori_kegiatan = response.data;
         });
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/portofolio/" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/portofolio/" + this.$route.params.id).then((response) => {
                 this.datas.nama_kegiatan = response.data.data.nama_kegiatan;
                 this.datas.penyelenggara = response.data.data.penyelenggara;
                 this.datas.tahun = response.data.data.tahun;
@@ -171,7 +171,7 @@ export default {
 
             if (this.$route.params.id) {
                 axios
-                    .post("/portofolio/api/portofolio/" + this.$route.params.id, formData, {
+                    .post("/portofolio.terdistribusi/api/portofolio/" + this.$route.params.id, formData, {
                         headers: {
                             "Content-Type": "multipart/form-data",
                         },
@@ -189,7 +189,7 @@ export default {
                     });
             } else {
                 axios
-                    .post("/portofolio/api/portofolio", formData, {
+                    .post("/portofolio.terdistribusi/api/portofolio", formData, {
                         headers: {
                             "Content-Type": "multipart/form-data",
                         },

@@ -124,10 +124,10 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/pembimbingakademik").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/pembimbingakademik").then((response) => {
             this.pembimbingAkademik = response.data.data;
         });
-        axios.get("/portofolio/api/angkatan").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/angkatan").then((response) => {
             this.angkatan = response.data.data;
             this.selectedAngkatan = this.angkatan[0].tahun;
             this.filterAngkatan(this.angkatan[0].id);
@@ -141,7 +141,7 @@ export default {
                     this.selectedAngkatan = this.angkatan[i].tahun;
                 }
             }
-            axios.get("/portofolio/api/mahasiswa/topMahasiswa/" + id).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa/topMahasiswa/" + id).then((response) => {
                 this.mahasiswa = response.data;
                 if (response.data.data.length !== 0) {
                     this.isThereMahasiswaAngkatan = true;
@@ -151,9 +151,9 @@ export default {
             });
         },
         calculateValidation() {
-            axios.get("/portofolio/api/mahasiswa").then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa").then((response) => {
                 for (let i = 0; i < response.data.data.length; i++) {
-                    axios.get("/portofolio/api/portofolio/byNim/" + response.data.data[i].nim).then((res) => {
+                    axios.get("/portofolio.terdistribusi/api/portofolio/byNim/" + response.data.data[i].nim).then((res) => {
                         this.perluValidasi += res.data.data.perluValidasi.length;
                         this.sudahValidasi += res.data.data.sudahValidasi.length;
                         this.totalPortofolio = this.perluValidasi + this.sudahValidasi;

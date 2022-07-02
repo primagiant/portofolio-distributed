@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     getResults: function (page = 1) {
-      axios.get("/portofolio/api/angkatan?page=" + page).then((response) => {
+      axios.get("/portofolio.terdistribusi/api/angkatan?page=" + page).then((response) => {
         this.angkatan = response.data;
       });
     },

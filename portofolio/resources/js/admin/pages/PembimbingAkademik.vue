@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         getResults: function (page = 1) {
-            axios.get("/portofolio/api/pembimbingakademik?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/pembimbingakademik?page=" + page).then((response) => {
                 this.pembimbingakademik = response.data;
             });
         },

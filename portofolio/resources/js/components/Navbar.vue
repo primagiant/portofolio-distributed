@@ -61,8 +61,8 @@ export default {
     },
     methods: {
         logout: function () {
-            axios.post("/portofolio/logout").then((response) => {
-                window.location.href = "/portofolio/login";
+            axios.post("/portofolio.terdistribusi/logout").then((response) => {
+                window.location.href = "/portofolio.terdistribusi/login";
             });
         },
     },
@@ -73,11 +73,11 @@ export default {
     .navbar .brand-logo img{
         width: 35px;
         height: 35px;
-    } 
+    }
     .navbar .brand-logo span{
         font-family: "Nunito", sans-serif;
         font-weight: 700;
         font-size: 20px;
         margin-left: 6px;
-    } 
+    }
 </style>

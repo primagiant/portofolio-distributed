@@ -57,11 +57,11 @@ export default {
         };
     },
     mounted() {
-        axios.get("/portofolio/api/fakultas").then((response) => {
+        axios.get("/portofolio.terdistribusi/api/fakultas").then((response) => {
             this.fakultas = response.data;
         });
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/jurusan/" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/jurusan/" + this.$route.params.id).then((response) => {
                 this.datas.nama_jurusan = response.data.data.nama_jurusan;
                 this.datas.fakultas_id = response.data.data.fakultas_id;
                 console.log(this.datas.fakultas_id);
@@ -75,7 +75,7 @@ export default {
             e.preventDefault();
             if (this.$route.params.id) {
                 axios
-                    .put("/portofolio/api/jurusan/" + this.$route.params.id, this.datas)
+                    .put("/portofolio.terdistribusi/api/jurusan/" + this.$route.params.id, this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "jurusan" });
@@ -85,7 +85,7 @@ export default {
                     });
             } else {
                 axios
-                    .post("/portofolio/api/jurusan", this.datas)
+                    .post("/portofolio.terdistribusi/api/jurusan", this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "jurusan" });

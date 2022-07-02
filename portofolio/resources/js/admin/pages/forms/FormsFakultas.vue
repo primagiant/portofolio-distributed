@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-</template> 
+</template>
 
 <script>
 export default {
@@ -44,7 +44,7 @@ export default {
     },
     mounted() {
         if (this.$route.params.id) {
-            this.axios.get("/portofolio/api/fakultas/" + this.$route.params.id).then((response) => {
+            this.axios.get("/portofolio.terdistribusi/api/fakultas/" + this.$route.params.id).then((response) => {
                 this.datas.nama_fakultas = response.data.data.nama_fakultas;
                 this.datas.deskripsi = response.data.data.deskripsi;
             });
@@ -55,7 +55,7 @@ export default {
             e.preventDefault();
             if (this.$route.params.id) {
                 axios
-                    .put("/portofolio/api/fakultas/" + this.$route.params.id, this.datas)
+                    .put("/portofolio.terdistribusi/api/fakultas/" + this.$route.params.id, this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "fakultas" });
@@ -65,7 +65,7 @@ export default {
                     });
             } else {
                 axios
-                    .post("/portofolio/api/fakultas", this.datas)
+                    .post("/portofolio.terdistribusi/api/fakultas", this.datas)
                     .then((response) => {
                         this.$swal.fire({ title: "Success!", text: response.data.message, icon: "success", timer: 1000 });
                         this.$router.push({ name: "fakultas" });

@@ -7,6 +7,7 @@ use App\Http\Resources\PortofolioResource;
 use App\Models\Mahasiswa;
 use App\Models\Portofolio;
 use App\Models\User;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
@@ -54,6 +55,7 @@ class PortofolioController extends Controller
             $client->setClientId(env('GOOGLE_DRIVE_CLIENT_ID'));
             $client->setClientSecret(env('GOOGLE_DRIVE_CLIENT_SECRET'));
             $client->refreshToken(env('GOOGLE_DRIVE_REFRESH_TOKEN'));
+            $client->setAccessToken(env('GOOGLE_DRIVE_ACCESS_TOKEN'));
             $service = new \Google_Service_Drive($client);
 
             // Create Angkatan Folder Name
@@ -186,6 +188,18 @@ class PortofolioController extends Controller
                 Portofolio::findOrFail($portofolio->id)
             );
 
+            $notifikasi = new Client();
+            $url = "http://localhost:3000/notifikasi/";
+            $notifikasi->request('POST', $url, [
+                'json' => [
+                    "senderId" => $portofolio->mahasiswa_id,
+                    "receiverId" => Mahasiswa::find($portofolio->mahasiswa_id)->pembimbing_akademik,
+                    "title" => "Portofolio Baru",
+                    "message" => User::find(Auth::user()->id)->mahasiswa->nama . "mengikuti kegiatan " . $request->nama_kegiatan,
+                    "isRead" => false
+                ],
+            ]);
+
             $response = [
                 'message' => "Portofolio Data created",
                 'data' => $result,
@@ -247,6 +261,7 @@ class PortofolioController extends Controller
                 $client->setClientId(env('GOOGLE_DRIVE_CLIENT_ID'));
                 $client->setClientSecret(env('GOOGLE_DRIVE_CLIENT_SECRET'));
                 $client->refreshToken(env('GOOGLE_DRIVE_REFRESH_TOKEN'));
+                $client->setAccessToken(env('GOOGLE_DRIVE_ACCESS_TOKEN'));
                 $service = new \Google_Service_Drive($client);
 
                 // Create Angkatan Folder Name

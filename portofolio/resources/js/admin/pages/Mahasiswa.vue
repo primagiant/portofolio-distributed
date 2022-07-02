@@ -68,7 +68,7 @@ export default {
     },
     methods: {
         getResults: function (page = 1) {
-            axios.get("/portofolio/api/mahasiswa?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/mahasiswa?page=" + page).then((response) => {
                 this.mahasiswa = response.data;
             });
         },

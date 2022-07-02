@@ -7,11 +7,11 @@ import SudahValidasi from '../pembimbingAkademik/pages/SudahValidasi.vue';
 import DetailSudahValidasi from '../pembimbingAkademik/pages/DetailSudahValidasi.vue';
 
 export const PembimbingAkademikRoutes = [
-    { name: 'dashboard', path: '/portofolio/pembimbing-akademik/dashboard', component: Dashboard },
-    { name: 'kegiatan', path: '/portofolio/pembimbing-akademik/kegiatan', component: Kegiatan },
-    { name: 'perluValidasi', path: '/portofolio/pembimbing-akademik/mahasiswa/non-valid', component: PerluValidasi },
-    { name: 'detailPerluValidasi', path: '/portofolio/pembimbing-akademik/mahasiswa/:nim/non-valid', component: DetailPerluValidasi },
-    { name: 'mahasiswaDiampu', path: '/portofolio/pembimbing-akademik/mahasiswa/all', component: MahasiswaDiampu },
-    { name: 'sudahValidasi', path: '/portofolio/pembimbing-akademik/mahasiswa/valid', component: SudahValidasi },
-    { name: 'detailSudahValidasi', path: '/portofolio/pembimbing-akademik/mahasiswa/:nim/valid', component: DetailSudahValidasi },
+    { name: 'dashboard', path: '/portofolio.terdistribusi/pembimbing-akademik/dashboard', component: Dashboard },
+    { name: 'kegiatan', path: '/portofolio.terdistribusi/pembimbing-akademik/kegiatan', component: Kegiatan },
+    { name: 'perluValidasi', path: '/portofolio.terdistribusi/pembimbing-akademik/mahasiswa/non-valid', component: PerluValidasi },
+    { name: 'detailPerluValidasi', path: '/portofolio.terdistribusi/pembimbing-akademik/mahasiswa/:nim/non-valid', component: DetailPerluValidasi },
+    { name: 'mahasiswaDiampu', path: '/portofolio.terdistribusi/pembimbing-akademik/mahasiswa/all', component: MahasiswaDiampu },
+    { name: 'sudahValidasi', path: '/portofolio.terdistribusi/pembimbing-akademik/mahasiswa/valid', component: SudahValidasi },
+    { name: 'detailSudahValidasi', path: '/portofolio.terdistribusi/pembimbing-akademik/mahasiswa/:nim/valid', component: DetailSudahValidasi },
 ];

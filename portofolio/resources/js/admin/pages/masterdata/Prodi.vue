@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         showAllData: function (page = 1) {
-            axios.get("/portofolio/api/prodi?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/prodi?page=" + page).then((response) => {
                 this.prodi = response.data;
             });
         },

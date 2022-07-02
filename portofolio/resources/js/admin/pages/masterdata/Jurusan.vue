@@ -62,7 +62,7 @@ export default {
     },
     methods: {
         showAllData: function (page = 1) {
-            axios.get("/portofolio/api/jurusan?page=" + page).then((response) => {
+            axios.get("/portofolio.terdistribusi/api/jurusan?page=" + page).then((response) => {
                 this.jurusan = response.data;
             });
         },
